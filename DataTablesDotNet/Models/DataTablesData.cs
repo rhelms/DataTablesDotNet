@@ -1,17 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 
-namespace DataTablesDotNet.Models {
+namespace DataTablesDotNet.Models
+{
+    public class DataTablesData
+    {
+        [JsonProperty(PropertyName = "draw")]
+        public int Draw { get; set; }
 
-    public class DataTablesData {
+        [JsonProperty(PropertyName = "recordsTotal")]
+        public int RecordsTotal { get; set; }
 
-        public int sEcho { get; set; }
+        [JsonProperty(PropertyName = "recordsFiltered")]
+        public int RecordsFiltered { get; set; }
 
-        public int iTotalRecords { get; set; }
+        [JsonProperty(PropertyName = "data")]
+        public List<List<string>> Data { get; set; }
 
-        public int iTotalDisplayRecords { get; set; }
-
-        public List<List<string>> aaData { get; set; }
-
-        public string sColumns { get; set; }
+        // TODO: This is supposed to be optional, so may need to do a separate object to report errors
+        //[JsonProperty(PropertyName = "error")]
+        //public string Error { get; set; }
     }
 }

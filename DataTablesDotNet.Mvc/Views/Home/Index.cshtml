@@ -20,8 +20,8 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>   
-            <td></td>  
+            <td></td>
+            <td></td>
             <td></td>
         </tr>
     </tbody>
@@ -30,53 +30,55 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var grid = $('#grid').dataTable({
-                "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-                "bProcessing": true,
-                "bSort": true,
-                "bServerSide": true,
-                "sAjaxSource": "/Home/GetUsers",
-                "aoColumnDefs": [
+                "dom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+                "processing": true,
+                "ordering": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/Home/GetUsers",
+                    "type": "GET"
+                },
+                "columnDefs": [
                     {
-                        "fnRender": function (oObj) {
-                            return "<a href='#" + oObj.aData[0] + "'>Edit</a>";
+                        "render": function (data, type, full, meta) {
+                            return "<a href='#" + data + "'>Edit</a>";
                         },
-                        "sName": "Id",
-                        "bSortable": false,
-                        "aTargets": [0]
+                        "name": "Id",
+                        "orderable": false,
+                        "targets": [0]
                     },
                     {
-                        "sName": "FullName",
-                        "bSearchable": true,
-                        "bSortable": true,
-                        "aTargets": [1]
+                        "name": "FullName",
+                        "searchable": true,
+                        "orderable": true,
+                        "targets": [1]
                     },
                     {
-                        "sName": "Street",
-                        "bSearchable": true,
-                        "bSortable": true,
-                        "aTargets": [2]
+                        "name": "Street",
+                        "searchable": true,
+                        "orderable": true,
+                        "targets": [2]
                     },
                     {
-                        "sName": "City",
-                        "bSearchable": true,
-                        "bSortable": true,
-                        "aTargets": [3]
+                        "name": "City",
+                        "searchable": true,
+                        "orderable": true,
+                        "targets": [3]
                     },
                     {
-                        "sName": "Zip",
-                        "bSearchable": true,
-                        "bSortable": true,
-                        "aTargets": [4]
+                        "name": "Zip",
+                        "searchable": true,
+                        "orderable": true,
+                        "targets": [4]
                     },
                     {
-                        "sName": "Amount",
-                        "bSearchable": true,
-                        "bSortable": true,
-                        "aTargets": [5]
+                        "name": "Amount",
+                        "searchable": true,
+                        "orderable": true,
+                        "targets": [5]
                     }
                 ]
             });
-            grid.fnSetFilteringDelay(1000);
         });
     </script>
 }

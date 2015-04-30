@@ -1,47 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using DataTablesDotNet.ModelBinding;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
-namespace DataTablesDotNet.Models {
+namespace DataTablesDotNet.Models
+{
+    public class DataTablesRequest
+    {
+        [JsonProperty(PropertyName = "draw")]
+        public int Draw { get; set; }
 
-    public class DataTablesRequest {
+        [JsonProperty(PropertyName = "columns")]
+        public List<DataTablesColumn> Columns { get; set; }
 
-        public int sEcho { get; set; }
+        [JsonProperty(PropertyName = "start")]
+        public int Start { get; set; }
 
-        public int iColumns { get; set; }
+        [JsonProperty(PropertyName = "length")]
+        public int Length { get; set; }
 
-        public string sColumns { get; set; }
+        [JsonProperty(PropertyName = "search")]
+        public DataTablesSearch Search { get; set; }
 
-        public int iDisplayStart { get; set; }
+        [JsonProperty(PropertyName = "order")]
+        public List<DataTablesOrder> Order { get; set; }
 
-        public int iDisplayLength { get; set; }
-
-        public IList<string> mDataProp { get; set; }
-
-        public string sSearch { get; set; }
-
-        public bool bRegex { get; set; }
-
-        public IList<string> sSearchList { get; set; }
-
-        public IList<bool> bRegexList { get; set; }
-
-        public IList<bool> bSearchable { get; set; }
-
-        public IList<string> iSortCol { get; set; }
-
-        public IList<string> sSortDir { get; set; }
-
-        public int iSortingCols { get; set; }
-
-        public IList<bool> bSortable { get; set; }
-
-        public DataTablesRequest() {
-            mDataProp = new List<string>();
-            sSearchList = new List<string>();
-            bRegexList = new List<bool>();
-            bSearchable = new List<bool>();
-            iSortCol = new List<string>();
-            sSortDir = new List<string>(); 
-            bSortable = new List<bool>();
+        public DataTablesRequest()
+        {
+            Columns = new List<DataTablesColumn>();
+            Search = new DataTablesSearch();
+            Order = new List<DataTablesOrder>();
         }
     }
 }

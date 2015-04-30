@@ -10,6 +10,7 @@ After a lot of searching I found the above blog post. I liked what I saw. Even b
 
 So, here it is. The code has been cleaned up, it uses Paul's Expression code for building the filters/sorts, and it doesn't stringify the datatables data which cuts the data sent pretty much in half. I also added a model binder so it all "just works".
 
+This version uses the 1.10 version of the DataTables API.
 ---
 
 How to use
@@ -28,6 +29,8 @@ How to use
     `var formattedList = dataTableParser.Process();`
 6. Return the formatted data:  
     `return Json(formattedList, JsonRequestBehavior.AllowGet);`
+
+For best results, implement a JsonNetActionFilter to return a result serialized with JSON.Net, so that the returned properties can remain as lower case. The implementation used in the project has been borrowed from [Using JSON.Net As Default JSON Serializer in MVC](http://labs.bjfocus.co.uk/2014/06/using-json-net-as-default-json-serializer-in-mvc/).
 
 If you want to see it in action, you can download the code and run the included MVC app in the debugger.
 

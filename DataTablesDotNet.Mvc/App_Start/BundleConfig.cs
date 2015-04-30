@@ -1,10 +1,13 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace DataTablesDotNet.Mvc {
-    public class BundleConfig {
+namespace DataTablesDotNet.Mvc
+{
+    public class BundleConfig
+    {
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
-        public static void RegisterBundles(BundleCollection bundles) {
+        public static void RegisterBundles(BundleCollection bundles)
+        {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -16,11 +19,10 @@ namespace DataTablesDotNet.Mvc {
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/datatablesjs").Include(
-                        "~/Scripts/DataTables-1.9.4/media/js/jquery.dataTables.js"));
+                        "~/Scripts/DataTables/jquery.dataTables.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrapjs").Include(
-                        "~/Scripts/bootstrap.js",
-                        "~/Scripts/bootstrap.datatables.js"));
+                        "~/Scripts/bootstrap.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -44,7 +46,7 @@ namespace DataTablesDotNet.Mvc {
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
             bundles.Add(new StyleBundle("~/Content/datatablescss").Include(
-                        "~/Content/DataTables-1.9.4/media/css/jquery.dataTables.css"));
+                        "~/Content/DataTables/css/jquery.dataTables.css"));
 
             bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
                         "~/Content/bootstrap.css",
